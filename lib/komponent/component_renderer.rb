@@ -11,12 +11,12 @@ module Komponent
       @context = controller.view_context.dup
 
       if Rails::VERSION::MAJOR >= 6
-        @view_renderer = @context.view_renderer
+        @render = @context.view_renderer
       else
-        @view_renderer = @context.view_renderer = @context.view_renderer.dup
+        @render = @context.view_renderer = @context.view_renderer.dup
       end
 
-      @lookup_context = @view_renderer.lookup_context = @view_renderer.lookup_context.dup
+      @lookup_context = @render.lookup_context = @render.lookup_context.dup
       @view_flow = view_flow
     end
 
